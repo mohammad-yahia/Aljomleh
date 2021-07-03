@@ -6,7 +6,9 @@ urlpatterns = [
 	#Leave as empty string for base url
 
     path('about/', views.about, name="about"),
-    path('bill/', views.bill, name="bill"),
+    path('bill/<str:pk>/', views.bill, name="bill"),
+    path('bill/', views.bill_list, name="bill_list"),
+
 
 	path('blog_rightsidebar/', views.blog_rightsidebar, name="blog_rightsidebar"),
     path('blog/', views.blog, name="blog"),

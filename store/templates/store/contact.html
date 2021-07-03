@@ -39,7 +39,9 @@
                         </div>
                         <div class="col-lg-7">
                             <div class="contact-form-area">
-                                <form action="#" class="contact-form">
+                                <form action="" class="contact-form" method="POST">
+                                    {{csrf_token}}
+                                    {{form}}
                                     <div class="input-item">
                                         <input type="text" name="name" placeholder="الاسم ">
                                         <i class="fas fa-user"></i>

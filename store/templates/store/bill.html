@@ -29,7 +29,9 @@
             <a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-white m-b-10 p-l-5"><i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> طباعة</a>
             </span>
             &nbsp 
-            شركة الفيصل للتوزيع
+            شركة الجملة للتوزيع
+            <a style="float: left" class="logo"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
+
          </div>
          <!-- end invoice-company -->
          <!-- begin invoice-header -->
@@ -37,13 +39,13 @@
          
             <div class="invoice-to">
               
-                  المدينة : عمان<br>
-                  المنطقة : البيادر<br>
-                  الشارع : حسين خواجا<br>
-                  مكان التوصيل : سوبر ماركت <br>
+                  المدينة : {{address.city}}<br>
+                  المنطقة : {{address.Region}}<br>
+                  الشارع :  {{address.street}}<br>
+                  مكان التوصيل : {{address.place}} <br>
 
 
-                رقم الهاتف :0788898121<br>
+                رقم الهاتف :{{customer.phone}}<br>
                </address>
             </div>
             <div class="invoice-date">
@@ -73,7 +75,6 @@
                      <tr>
                         <td>
                            <span class="text-inverse">{{item.product.name}} </span><br>
-                           <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id sagittis arcu.</small>
                         </td>
                         <td class="text-center">${{item.product.price}}</td>
                         <td class="text-center">{{item.quantity}}</td>
@@ -103,20 +104,20 @@
          <!-- end invoice-content -->
          <!-- begin invoice-note -->
          <div class="invoice-note">
-            * Make all cheques payable to [Your Company Name]<br>
-            * Payment is due within 30 days<br>
-            * If you have any questions concerning this invoice, contact  [Name, Phone Number, Email]
+            * خدمة التوصيل مجاني للفواتير التي تزيد عن 20 دينار<br>
+            * البضائع المباعة ترد او تستبدل  (حتى لو تم استهلاك جزء منها )<br>
+            * سنقوم باضافة اي اصناف مقترحة خلال 24 ساعة بعد تزيدنا بأسمائها من خلال الموقع الالكتروني 
          </div>
          <!-- end invoice-note -->
          <!-- begin invoice-footer -->
          <div class="invoice-footer">
             <p class="text-center m-b-5 f-w-600">
-               THANK YOU FOR YOUR BUSINESS
+               <!-- THANK YOU FOR YOUR BUSINESS -->
             </p>
             <p class="text-center">
-               <span class="m-r-10"><i class="fa fa-fw fa-lg fa-globe"></i> matiasgallipoli.com</span>
-               <span class="m-r-10"><i class="fa fa-fw fa-lg fa-phone-volume"></i> T:016-18192302</span>
-               <span class="m-r-10"><i class="fa fa-fw fa-lg fa-envelope"></i> rtiemps@gmail.com</span>
+               <span class="m-r-10"><i class="fa fa-fw fa-lg fa-globe"></i> 0797339563</span> 
+               <span class="m-r-10"><i class="fa fa-fw fa-lg fa-phone-volume"></i> mohammad.y.qudah@gmail.com</span>
+               <span class="m-r-10"><i class="fa fa-fw fa-lg fa-envelope"></i> www.aljomleh.com</span>
             </p>
          </div>
          <!-- end invoice-footer -->

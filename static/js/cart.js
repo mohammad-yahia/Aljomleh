@@ -91,6 +91,16 @@ function addCookieItem(productId, action, image_url, price, name) {
       ).toFixed(2);
       cartAmountElements[i].textContent = newAmount;
     }
+
+     //Quantity Sum
+  let cartTotalItemsCountElements = document.getElementsByName(
+    "total-items-count"
+  );
+
+  for (var i = 0; i < cartTotalItemsCountElements.length; i++) {
+    let itemsCount = cartTotalItemsCountElements[i].textContent;
+    cartTotalItemsCountElements[i].textContent = Number.parseFloat(itemsCount) + 1;
+  }
   }
 
   if (action == "remove") {
@@ -111,17 +121,18 @@ function addCookieItem(productId, action, image_url, price, name) {
       ).toFixed(2);
       cartAmountElements[i].textContent = newAmount;
     }
-  }
-
-  //Quantity Sum
+     //Quantity Sum
   let cartTotalItemsCountElements = document.getElementsByName(
     "total-items-count"
   );
 
   for (var i = 0; i < cartTotalItemsCountElements.length; i++) {
     let itemsCount = cartTotalItemsCountElements[i].textContent;
-    cartTotalItemsCountElements[i].textContent = Number.parseFloat(itemsCount) + 1;
+    cartTotalItemsCountElements[i].textContent = Number.parseFloat(itemsCount) -1;
   }
+  }
+
+ 
 
   console.log("CART:", cart);
   document.cookie = "cart=" + JSON.stringify(cart) + ";domain=;path=/";

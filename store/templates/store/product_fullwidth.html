@@ -1,5 +1,6 @@
 {% extends 'store/main.html' %} {% load static %} {% block content %}
 
+
 <style>
   .filterDiv {
     display: none;
@@ -706,7 +707,7 @@
         JD<span name="cart-amount-holder">{{order.get_cart_total}}</span>
       </p>
       <a href="{% url 'checkout' %}" class="procced-checkout"
-        >Prosecced Checkout</a
+        >الذهاب الى الدفع</a
       >
     </div>
   </div>
@@ -755,7 +756,7 @@
                     >{{product.name}}</a
                   >
                 </h6>
-                <p class="quantity">1 kg</p>
+                <p class="quantity">{{product.size}} حبة</p> 
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="price">
                     {{product.price}}JD
@@ -865,9 +866,9 @@
 
           {% endfor %}
 
-          <div class="col-12 text-center mt-4">
+          <!-- <div class="col-12 text-center mt-4">
             <button class="loadMore">مشاهدة المزيد</button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

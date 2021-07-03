@@ -12,6 +12,38 @@ from django.http import HttpResponse
 def about(request):
     context = {}
     return render(request, 'store/about.html', context)
+    
+
+def bill_list(request):
+    
+    if request.user.is_authenticated:
+        orders =Order.objects.all()
+
+        # order=Order.objects.get(id=pk)
+        # items = order.orderitem_set.all()
+
+        # customer =order.customer
+        # address = ShippingAddress.objects.filter(customer=customer)
+        
+        # for i in address:
+        #     print (i.city)
+        
+        # total = 0
+        # for item in items:
+        #     total = item.product.price * item.quantity + total
+            
+        # products =Product.objects.all()
+    
+        # context = {"items":items , "total":total,  "address":i , "customer":customer}
+        # return render(request, 'store/bill.html', context)
+
+    else:
+        return HttpResponse('<h1> please login </h1>')
+
+
+
+    context = {"orders":orders}
+    return render(request, 'store/bill_list.html', context)
 
 
 def blog_rightsidebar(request):
@@ -69,9 +101,18 @@ def product_fullwidth(request):
 def product_leftsidebar(request):
     context = {}
     return render(request, 'store/product_leftsidebar.html', context)
+
+
+
 def contact(request):
+    
     context = {}
     return render(request, 'store/contact.html', context)
+
+
+
+
+
 
 def faq(request):
     context = {}
@@ -227,27 +268,42 @@ def processOrder(request):
 # 	return JsonResponse('Payment submitted..', safe=False)
 
 
-def bill(request):
+def bill(request,pk):
 
     if request.user.is_authenticated:
 
-        order=Order.objects.get(id=89)
+        order=Order.objects.get(id=pk)
         items = order.orderitem_set.all()
+
+
+
+        customer =order.customer
+        address = ShippingAddress.objects.filter(customer=customer)
+        
+        for i in address:
+            print (i.city)
         
 
 
         total = 0
         for item in items:
             total = item.product.price * item.quantity + total
-
+            
 
 
 
         
         products =Product.objects.all()
+    
 
-        context = {"items":items , "total":total}
+
+        context = {"items":items , "total":total,  "address":i , "customer":customer}
         return render(request, 'store/bill.html', context)
 
     else:
         return HttpResponse('<h1> please login </h1>')
+
+
+
+
+

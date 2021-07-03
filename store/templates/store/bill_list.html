@@ -1,0 +1,45 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/bootstrap-rtl.css' %}">
+
+</head>
+<body>
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">اسم الزبون</th>
+        <th scope="col">اسم المحل </th>
+        <th scope="col">رقم الهاتق </th>
+        <th scope="col">القيمة</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+      
+
+      <tr>
+        <th scope="row">1</th>
+        <td><a href="{% url 'bill' order.id  %}">{{order.customer}}</a></td>
+        <td>{{order.customer.phone}}</td>
+        <td></td>
+      </tr>
+      </a>
+     {% endfor %}
+    </tbody>
+  </table>
+
+
+</body>
+</html>
